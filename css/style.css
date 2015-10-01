@@ -1,0 +1,63 @@
+html {
+	width: 100%;
+	height: 100%;
+}
+
+body {
+	width: 100%;
+	height: 100%;
+	background-image: url("../img/background.jpg");
+	background-size: cover;
+	background-position: center;
+}
+
+.contentContainer {
+	height: 40%;
+	width: 100%;
+	background-color: rgba(0, 0, 0, 0.4);
+	margin-top: 20%;
+	border-radius: 8px;
+	padding-bottom: 20px;
+}
+
+.mainTitle {
+	color: #FFFFFF;
+	font-family: 'Comfortaa', cursive;
+	text-align: center;
+	font-size: 5em;
+}
+
+.lead {
+	text-align: center;
+	color: #5db1d8;
+	font-family: 'Comfortaa', cursive;
+}
+
+.searchBox {
+	text-align: center;
+}
+
+.submitButton {
+	display: table;
+	margin: 0 auto;
+	margin-bottom: 20px;
+}
+
+.resultSuccess {
+	text-align: center;
+	display: none;
+}
+
+.resultFail {
+	text-align: center;
+	display: none;
+}
+
+.poweredBy {
+	color: #FFFFFF;
+	text-align: center;
+}
+
+.poweredBy a {
+	color: white;
+}

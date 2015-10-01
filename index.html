@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        
+        <title>Weather Scraper</title>
+        <!-- BOOTSTRAP -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+        <!-- STYLES -->
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <!-- FONTS -->
+        <link href='http://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet' type='text/css'>
+        <!-- JQUERY -->
+        <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="contentContainer">
+                <h1 class="mainTitle">Weather Guru</h1>
+                <p class="lead">Enter your city below to get a forecast of the weather.</p>
+                <form> 
+                    <div class="form-group">
+                        <input type="text" class="form-control searchBox" name="city" id="city" placeholder="Eg. London, Paris, San Francisco">
+                    </div>
+                    <button id="findMyWeather" class="btn btn-success btn-lg submitButton">Find My Weather</button>
+                </form>
+                <p class="poweredBy">Powered by: <a href="http://www.weather-forecast.com/" target="_blank">Weather-Forecast.com</a></p>
+                <div id="success" class="alert alert-success resultSuccess">Success</div>
+                <div id="fail" class="alert alert-danger resultFail">Could not find the weather data for that city. Please try again.</div>
+            </div>
+        </div>
+        <script>
+            $("#findMyWeather").click(function(event) {
+                event.preventDefault();
+
+                if($("#city").val() != "") {
+                    $.get("php/scraper.php?city="+$("#city").val(), function(data) {
+                        if(data == "") {
+                            $(".alert").hide();
+                            $("#fail").fadeIn();
+                        } else {
+                            $(".alert").hide();
+                            $("#success").html(data).fadeIn(500);    
+                        } 
+                    });
+                } else {
+                    $(".alert").hide();
+                    $("#fail").fadeIn();
+                }
+                
+            });
+        </script>
+    </body>
+
+</html>                                     
